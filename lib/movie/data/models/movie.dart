@@ -2,7 +2,7 @@ class Movie {
   final int id;
   final DateTime releaseDate;
   final String title;
-  final String posterPath;
+  late String posterPath;
 
   Movie({
     required this.releaseDate,

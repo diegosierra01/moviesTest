@@ -33,6 +33,8 @@ dependencies:
   dio: ^4.0.0
   # package to make persistence tests
   mocktail: ^0.1.4
+  # functional programming
+  dartz: ^0.10.0-nullsafety.2
 
 dev_dependencies:
   flutter_test:
