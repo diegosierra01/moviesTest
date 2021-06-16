@@ -16,7 +16,7 @@ class WeeklyMoviesImpl implements WeeklyMovies {
 
   @override
   Future<Either<Page, GenericError>> load(int page, int total) async {
-    if (page < 1 || page > total) {
+    if ((page < 1) || (page > 1 && page > total)) {
       return Right(MoviePageError());
     } else {
       return await _movieRepository.prepareMovieList(

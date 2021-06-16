@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:moviestest/movie/data/models/movie.dart';
 import 'package:moviestest/movie/data/models/page.dart';
 import 'package:moviestest/movie/data/models/trendingRequest.dart';
 import 'package:moviestest/movie/domain/errors.dart';
