@@ -1,4 +1,5 @@
 enum States {
-  Idle,
-  Busy,
+  Loading,
+  AdditionalLoading,
+  Success,
 }
