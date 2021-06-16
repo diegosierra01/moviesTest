@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:moviestest/movie/data/models/movie.dart';
+import 'package:moviestest/movie/data/models/page.dart';
 import 'package:moviestest/movie/data/models/trendingRequest.dart';
 import 'package:moviestest/movie/domain/errors.dart';
 import 'package:moviestest/movie/external/movie_datasource_impl.dart';
@@ -25,7 +26,7 @@ void main() {
       timeWindow: 'timeWindow');
 
   test(
-    'When statusCode is 200, should return a list of movies',
+    'When statusCode is 200, should return a page',
     () async {
       when(() => dioMock.get(any(),
           options: any(named: 'options', that: isNotNull))).thenAnswer(
@@ -36,7 +37,7 @@ void main() {
         ),
       );
       final result = await datasource.getData(requestInfo);
-      expect(result, isA<List<Movie>>());
+      expect(result, isA<Page>());
     },
   );
 

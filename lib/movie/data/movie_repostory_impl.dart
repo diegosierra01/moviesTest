@@ -2,11 +2,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:moviestest/constants/endpoints.dart';
 import 'package:moviestest/movie/data/models/trendingRequest.dart';
-import 'package:moviestest/movie/data/models/movie.dart';
 import 'package:moviestest/constants/errors.dart';
 import 'package:moviestest/movie/data/movie_datasource.dart';
 import 'package:moviestest/movie/domain/errors.dart';
 import 'package:moviestest/movie/domain/movie_repository.dart';
+
+import 'models/page.dart';
 
 class MovieRepositoryImpl implements MovieRepository {
   final MovieDatasource _movieDatasource;
@@ -14,16 +15,16 @@ class MovieRepositoryImpl implements MovieRepository {
   MovieRepositoryImpl(this._movieDatasource);
 
   @override
-  Future<Either<List<Movie>, GenericError>> prepareMovieList(
+  Future<Either<Page, GenericError>> prepareMovieList(
       TrendingRequest trendingRequest) async {
     try {
-      final list = await _movieDatasource.getData(trendingRequest);
+      final page = await _movieDatasource.getData(trendingRequest);
       const imagesPath = '${Endpoints.baseUrlImages}w500';
-      final response = list.map((e) {
+      page.movies = page.movies.map((e) {
         e.posterPath = imagesPath + e.posterPath;
         return e;
       }).toList();
-      return Left(response);
+      return Left(page);
     } catch (e) {
       if (e is GenericError) {
         return Right(e);
