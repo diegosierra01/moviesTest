@@ -9,7 +9,7 @@ class MovieBloc with ChangeNotifier {
   final WeeklyMovies weeklyMovies;
   final state = ValueNotifier<States>(States.Loading);
   final setup = ValueNotifier<String>('grid');
-  final error = ValueNotifier<GenericError>(NoError());
+  final errorState = ValueNotifier<GenericError>(NoError());
   final _controller = ScrollController();
   late List<Movie> _movies = [];
   late int _totalPages = 1;
@@ -39,6 +39,7 @@ class MovieBloc with ChangeNotifier {
             _over = true;
             state.value = States.Finished;
           }
+          errorState.value = error;
         },
       );
     }

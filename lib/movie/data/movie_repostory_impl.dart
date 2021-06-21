@@ -1,5 +1,6 @@
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:moviestest/constants/endpoints.dart';
 import 'package:moviestest/movie/data/models/trendingRequest.dart';
 import 'package:moviestest/constants/errors.dart';
@@ -25,12 +26,20 @@ class MovieRepositoryImpl implements MovieRepository {
         return e;
       }).toList();
       return Left(page);
-    } catch (e) {
-      if (e is GenericError) {
-        return Right(e);
-      } else {
-        return Right(MovieRepositoryError());
+    } catch (err) {
+      if (err is GenericError) {
+        return Right(err);
+      } else if (err is DioError) {
+        if (err.type == DioErrorType.other && err.message.contains('Socket')) {
+          return Right(InternetError());
+        } else if (err.type == DioErrorType.connectTimeout ||
+            err.type == DioErrorType.receiveTimeout ||
+            err.type == DioErrorType.sendTimeout) {
+          return Right(ServerError());
+        }
+        return Right(UnknownError());
       }
+      return Right(MovieRepositoryError());
     }
   }
 }

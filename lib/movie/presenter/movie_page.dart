@@ -21,21 +21,32 @@ class MoviePage extends StatelessWidget with WidgetsBindingObserver {
         ),
       ),
       body: ValueListenableBuilder(
-        valueListenable: _bloc.error,
+        valueListenable: _bloc.errorState,
         builder: (BuildContext context, error, Widget? child) {
           if (error is! NoError) {
             String _message;
             Icon _icon;
             if (error is InternetError) {
-              _message = '';
-              _icon = Icon(Icons.power_off_outlined);
+              _message =
+                  'En este momento no tienes acceso a internet. Activa los datos del dispositivo o conéctate a una red Wifi.';
+              _icon = Icon(
+                Icons.power_off_outlined,
+                color: Theme.of(context).primaryColor,
+              );
             } else if (error is ServerError) {
               _message =
-                  'En este momento no se puede conectar con el servidor.';
-              _icon = Icon(Icons.cloud_off);
+                  'En este momento no se puede conectar con el servidor. Intente de nuevo mas tarde.';
+              _icon = Icon(
+                Icons.cloud_off,
+                color: Theme.of(context).primaryColor,
+              );
             } else {
-              _message = 'Oops';
-              _icon = Icon(Icons.error_outline);
+              _message =
+                  'Ha ocurrido un error inesperado, trabajamos constantemente para minimizar estos fallos.';
+              _icon = Icon(
+                Icons.error_outline,
+                color: Theme.of(context).primaryColor,
+              );
             }
             WidgetsBinding.instance!
               ..addObserver(this)
@@ -49,7 +60,7 @@ class MoviePage extends StatelessWidget with WidgetsBindingObserver {
                       message: _message,
                     ),
                   ).then<void>((value) {});
-                  _bloc.error.value = NoError();
+                  _bloc.errorState.value = NoError();
                 },
               );
           }

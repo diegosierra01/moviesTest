@@ -21,7 +21,7 @@ class MovieInjection {
             context.read<Dio>(),
             Options(
               followRedirects: false,
-              validateStatus: (status) => status! < 500,
+              validateStatus: (status) => status! < 510,
             ),
           ),
         ),
