@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moviestest/movie/presenter/movie_injection.dart';
+import 'package:moviestest/splash/splash.dart';
 
 import 'constants/colors.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
           AppColors.primary,
         ),
       ),
-      home: MovieInjection.injection(),
+      home: SplashPage(),
     );
   }
 }

@@ -44,8 +44,9 @@ class MovieGridCard extends StatelessWidget {
                 child: AspectRatio(
                   aspectRatio: 12.0 / 11.0,
                   child: FadeInImage(
-                    placeholder: NetworkImage(
-                        'https://media-exp3.licdn.com/dms/image/C4E0BAQG5QYC-kLdzzQ/company-logo_200_200/0/1623182840135?e=1632355200&v=beta&t=10cdqjoDdf2xpwYLemVfeCwQahi42GscI3Cag_AXVWI'),
+                    fadeOutDuration: Duration(milliseconds: 400),
+                    fadeInDuration: Duration(milliseconds: 400),
+                    placeholder: AssetImage('assets/images/ic_launcher.png'),
                     image: NetworkImage(
                       imagePath,
                     ),

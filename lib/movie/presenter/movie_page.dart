@@ -35,7 +35,7 @@ class MoviePage extends StatelessWidget with WidgetsBindingObserver {
               );
             } else if (error is ServerError) {
               _message =
-                  'En este momento no se puede conectar con el servidor. Intente de nuevo mas tarde.';
+                  'En este momento no se puede conectar con el servidor. Intenta de nuevo mas tarde.';
               _icon = Icon(
                 Icons.cloud_off,
                 color: Theme.of(context).primaryColor,

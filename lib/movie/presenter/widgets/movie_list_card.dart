@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:moviestest/movie/presenter/widgets/image_detail.dart';
 
 class MovieListCard extends StatelessWidget {
@@ -45,8 +46,9 @@ class MovieListCard extends StatelessWidget {
                     );
                   },
                   child: FadeInImage(
-                    placeholder: NetworkImage(
-                        'https://media-exp3.licdn.com/dms/image/C4E0BAQG5QYC-kLdzzQ/company-logo_200_200/0/1623182840135?e=1632355200&v=beta&t=10cdqjoDdf2xpwYLemVfeCwQahi42GscI3Cag_AXVWI'),
+                    fadeOutDuration: Duration(milliseconds: 400),
+                    fadeInDuration: Duration(milliseconds: 400),
+                    placeholder: AssetImage('assets/images/ic_launcher.png'),
                     image: NetworkImage(
                       imagePath,
                     ),
