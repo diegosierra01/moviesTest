@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moviestest/movie/presenter/movie_injection.dart';
 
+import 'constants/colors.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -10,9 +12,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Movies',
+      title: 'Peliculas La Haus',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: MaterialColor(
+          AppColors.primary[500]!.value,
+          AppColors.primary,
+        ),
       ),
       home: MovieInjection.injection(),
     );

@@ -1,5 +1,5 @@
 enum States {
   Loading,
   AdditionalLoading,
-  Success,
+  Finished,
 }

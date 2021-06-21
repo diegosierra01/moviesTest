@@ -11,10 +11,18 @@ class Movie {
     required this.posterPath,
   });
 
-  factory Movie.fromJson(Map<String, dynamic> json) => Movie(
-        id: json['id'] ?? 0,
-        title: json['title'] ?? '',
-        releaseDate: DateTime.parse(json['release_date']),
-        posterPath: json['poster_path'] ?? '',
-      );
+  factory Movie.fromJson(Map<String, dynamic> json) {
+    var releaseDate = json['release_date'];
+    if (releaseDate != null && releaseDate?.isNotEmpty) {
+      releaseDate = DateTime.parse(json['release_date']);
+    } else {
+      releaseDate = DateTime(0);
+    }
+    return Movie(
+      id: json['id'] ?? 0,
+      title: json['title'] ?? '',
+      releaseDate: releaseDate,
+      posterPath: json['poster_path'] ?? '',
+    );
+  }
 }

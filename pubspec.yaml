@@ -35,6 +35,8 @@ dependencies:
   mocktail: ^0.1.4
   # functional programming
   dartz: ^0.10.0-nullsafety.2
+  # date format
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
