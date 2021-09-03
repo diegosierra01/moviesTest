@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:moviestest/constants/endpoints.dart';
+import 'package:moviestest/interceptor.dart';
 import 'package:moviestest/movie/data/models/page.dart';
 import 'package:moviestest/movie/data/models/trendingRequest.dart';
 import 'package:moviestest/movie/data/movie_datasource.dart';
@@ -11,10 +12,16 @@ class MovieDatasourceImpl implements MovieDatasource {
 
   MovieDatasourceImpl(this.dioClient, this.options);
 
+  void start() {
+    dioClient.interceptors.add(AppInterceptors());
+  }
+
   @override
   Future<Page> getData(TrendingRequest trendingRequest) async {
     final url = Endpoints.baseUrl + trendingRequest.getPath();
-    final response = await dioClient.get(url, options: options);
+    final response = await dioClient.get(url, options: options).catchError((e) {
+      throw e.error;
+    });
     if (response.statusCode == 200) {
       final result = Page.fromJson(response.data);
       return result;

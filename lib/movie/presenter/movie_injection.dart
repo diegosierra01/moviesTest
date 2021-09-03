@@ -23,7 +23,7 @@ class MovieInjection {
               followRedirects: false,
               validateStatus: (status) => status! < 510,
             ),
-          ),
+          )..start(),
         ),
         Provider<MovieRepository>(
           create: (context) => MovieRepositoryImpl(

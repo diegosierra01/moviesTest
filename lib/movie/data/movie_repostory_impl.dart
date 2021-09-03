@@ -26,19 +26,9 @@ class MovieRepositoryImpl implements MovieRepository {
         return e;
       }).toList();
       return Left(page);
+    } on GenericError catch (err) {
+      return Right(err);
     } catch (err) {
-      if (err is GenericError) {
-        return Right(err);
-      } else if (err is DioError) {
-        if (err.type == DioErrorType.other && err.message.contains('Socket')) {
-          return Right(InternetError());
-        } else if (err.type == DioErrorType.connectTimeout ||
-            err.type == DioErrorType.receiveTimeout ||
-            err.type == DioErrorType.sendTimeout) {
-          return Right(ServerError());
-        }
-        return Right(UnknownError());
-      }
       return Right(MovieRepositoryError());
     }
   }
