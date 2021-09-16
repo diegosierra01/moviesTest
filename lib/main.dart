@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:moviestest/movie/presenter/movie_injection.dart';
-import 'package:moviestest/splash/splash.dart';
+import 'package:moviestest/routes.dart';
 
-import 'constants/colors.dart';
+import 'package:moviestest/constants/colors.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Peliculas La Haus',
+      title: 'Peliculas IMDb',
       theme: ThemeData(
         primarySwatch: MaterialColor(
           AppColors.primary[500]!.value,
           AppColors.primary,
         ),
       ),
-      home: SplashPage(),
+      onGenerateRoute: (settings) => Routes.instance!.getRoutes[settings.name],
     );
   }
 }

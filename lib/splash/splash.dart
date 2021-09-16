@@ -2,9 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:moviestest/movie/presenter/movie_injection.dart';
+
+import '../routes.dart';
 
 class SplashPage extends StatefulWidget {
+  const SplashPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _SplashPageState();
 }
@@ -23,19 +26,14 @@ class _SplashPageState extends State<SplashPage>
     _animation = Tween(begin: 10.0, end: 1.0).animate(
       CurvedAnimation(
         parent: _animationController,
-        curve: Interval(0, 0.5),
+        curve: const Interval(0, 0.5),
       ),
     );
     _animationController.forward();
     super.initState();
     Timer(
-      Duration(seconds: 2),
-      () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => MovieInjection.injection()),
-        );
-      },
+      const Duration(seconds: 2),
+      () => Navigator.pushReplacementNamed(context, Routes.movies),
     );
   }
 

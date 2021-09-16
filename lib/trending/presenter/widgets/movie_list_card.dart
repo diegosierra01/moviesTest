@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:moviestest/movie/presenter/widgets/image_detail.dart';
+import 'package:moviestest/trending/presenter/widgets/image_detail.dart';
 
 class MovieListCard extends StatelessWidget {
   final String imagePath;
@@ -28,7 +27,7 @@ class MovieListCard extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Container(
+          SizedBox(
             width: _size.width * 0.2,
             height: _size.height * 0.15,
             child: Hero(
@@ -46,9 +45,10 @@ class MovieListCard extends StatelessWidget {
                     );
                   },
                   child: FadeInImage(
-                    fadeOutDuration: Duration(milliseconds: 400),
-                    fadeInDuration: Duration(milliseconds: 400),
-                    placeholder: AssetImage('assets/images/ic_launcher.png'),
+                    fadeOutDuration: const Duration(milliseconds: 400),
+                    fadeInDuration: const Duration(milliseconds: 400),
+                    placeholder:
+                        const AssetImage('assets/images/ic_launcher.png'),
                     image: NetworkImage(
                       imagePath,
                     ),
@@ -60,7 +60,7 @@ class MovieListCard extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
+              padding: const EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +71,7 @@ class MovieListCard extends StatelessWidget {
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(height: 8.0),
+                  const SizedBox(height: 8.0),
                   Text(
                     date,
                     style: theme.textTheme.overline,

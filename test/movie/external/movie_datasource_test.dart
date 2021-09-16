@@ -3,10 +3,10 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:moviestest/movie/data/models/page.dart';
-import 'package:moviestest/movie/data/models/trendingRequest.dart';
-import 'package:moviestest/movie/domain/errors.dart';
-import 'package:moviestest/movie/external/movie_datasource_impl.dart';
+import 'package:moviestest/trending/data/models/page.dart';
+import 'package:moviestest/trending/data/models/trending_request.dart';
+import 'package:moviestest/trending/domain/errors.dart';
+import 'package:moviestest/trending/external/movie_dio_datasource.dart';
 
 import '../../sample/response_movie.dart';
 
@@ -14,15 +14,12 @@ class DioMock extends Mock implements Dio {}
 
 void main() {
   final dioMock = DioMock();
-  final datasource = MovieDatasourceImpl(
+  final datasource = MovieDioDatasource(
     dioMock,
     Options(followRedirects: false, validateStatus: (status) => status! < 500),
   );
   final requestInfo = TrendingRequest(
-      apiKey: 'apiKey',
-      page: 1,
-      mediaType: 'mediaType',
-      timeWindow: 'timeWindow');
+      page: 1, mediaType: 'mediaType', timeWindow: 'timeWindow');
 
   test(
     'When statusCode is 200, should return a page',

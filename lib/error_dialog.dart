@@ -29,15 +29,15 @@ class ErrorDialog extends StatelessWidget {
                 SizedBox(
                   height: _size.height * 0.25,
                   child: FittedBox(
-                    child: icon,
                     fit: BoxFit.fitHeight,
+                    child: icon,
                   ),
                 ),
                 Expanded(
                   child: Center(
                     child: Text(
                       message,
-                      style: TextStyle(color: Colors.black),
+                      style: const TextStyle(color: Colors.black),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -56,7 +56,7 @@ class ErrorDialog extends StatelessWidget {
                 child: CircleAvatar(
                   radius: MediaQuery.of(context).size.width * 0.04,
                   backgroundColor: Colors.black,
-                  child: FittedBox(
+                  child: const FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Center(
                       child: Icon(

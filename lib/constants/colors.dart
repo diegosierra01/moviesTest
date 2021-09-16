@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  AppColors._();
   static const Map<int, Color> primary = <int, Color>{
     50: Color(0xFF3ecfaf),
     100: Color(0xFF3ecfaf),

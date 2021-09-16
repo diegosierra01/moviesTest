@@ -1,18 +1,23 @@
 import 'package:dio/dio.dart';
 
-import 'constants/errors.dart';
+import 'package:moviestest/constants/errors.dart';
 
-class AppInterceptors extends Interceptor {
+class AppInterceptors extends InterceptorsWrapper {
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
-    super.onError(err, handler);
-    if (err.message.contains('Socket')) {
-      throw InternetError();
-    } else if (err.type == DioErrorType.connectTimeout ||
-        err.type == DioErrorType.receiveTimeout ||
-        err.type == DioErrorType.sendTimeout) {
-      throw ServerError();
+    if (areTroublesInternet(err)) {
+      handler.reject(InternetError(err.requestOptions));
+    } else if (areTroublesServer(err)) {
+      handler.reject(ServerError(err.requestOptions));
+    } else {
+      handler.reject(UnknownError(err.requestOptions));
     }
-    throw UnknownError();
   }
+
+  bool areTroublesInternet(DioError err) => err.message.contains('Socket');
+
+  bool areTroublesServer(err) =>
+      err.type == DioErrorType.connectTimeout ||
+      err.type == DioErrorType.receiveTimeout ||
+      err.type == DioErrorType.sendTimeout;
 }

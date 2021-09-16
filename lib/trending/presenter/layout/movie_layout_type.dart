@@ -1,0 +1,4 @@
+enum MovieLayoutType {
+  grid,
+  list,
+}
