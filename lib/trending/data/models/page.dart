@@ -1,4 +1,4 @@
-import 'package:moviestest/trending/data/models/media.dart';
+import 'package:moviestest/trending/data/models/media_distribuitor.dart';
 
 class Page {
   final List<Media> movies;

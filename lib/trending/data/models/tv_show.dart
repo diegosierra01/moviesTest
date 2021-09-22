@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:moviestest/constants/endpoints.dart';
-import 'package:moviestest/trending/data/models/media.dart';
+import 'package:moviestest/trending/data/models/media_distribuitor.dart';
 
 class TvShow extends Media {
   final int idTv;

@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:moviestest/constants/endpoints.dart';
-import 'package:moviestest/trending/data/models/media.dart';
+import 'package:moviestest/trending/data/models/media_distribuitor.dart';
 import 'package:moviestest/trending/data/models/page.dart';
 import 'package:moviestest/trending/data/models/trending_request.dart';
 import 'package:moviestest/trending/data/trending_datasource.dart';
