@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:moviestest/errors/error_presenter.dart';
-import 'package:moviestest/trending/data/models/media.dart';
+import 'package:moviestest/trending/data/models/media_distribuitor.dart';
 import 'package:moviestest/trending/data/models/media_type.dart';
 import 'package:moviestest/trending/domain/errors.dart';
 import 'package:moviestest/trending/domain/usecases/weekly_movies.dart';
