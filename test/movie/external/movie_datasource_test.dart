@@ -14,7 +14,7 @@ class DioMock extends Mock implements Dio {}
 
 void main() {
   final dioMock = DioMock();
-  final datasource = MovieDioDatasource(
+  final datasource = TrendingRequestDatasource(
     dioMock,
     Options(followRedirects: false, validateStatus: (status) => status! < 500),
   );

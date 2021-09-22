@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:moviestest/constants/errors.dart';
-import 'package:moviestest/error_dialog.dart';
-import 'package:moviestest/trending/presenter/error/error_presenter.dart';
+import 'package:moviestest/errors/error_presenter.dart';
+import 'package:moviestest/errors/errors.dart';
+import 'package:moviestest/errors/error_dialog.dart';
 import 'package:provider/provider.dart';
 
 class ErrorMovieWidget extends StatelessWidget with WidgetsBindingObserver {

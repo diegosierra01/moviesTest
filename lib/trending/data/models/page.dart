@@ -1,7 +1,7 @@
-import 'package:moviestest/trending/data/models/movie.dart';
+import 'package:moviestest/trending/data/models/media.dart';
 
 class Page {
-  final List<Movie> movies;
+  final List<Media> movies;
   final int totalPages;
 
   Page(this.movies, this.totalPages);
@@ -9,7 +9,7 @@ class Page {
   factory Page.fromJson(Map<String, dynamic> json) => Page(
         (json['results'] as List)
             .map(
-              (e) => Movie.fromJson(e as Map<String, dynamic>),
+              (e) => Media.fromJson(e as Map<String, dynamic>),
             )
             .toList(),
         json['total_pages'] as int,

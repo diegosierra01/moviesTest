@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-class MovieGridView extends StatelessWidget {
+class TrendingListView extends StatelessWidget {
   final int length;
   final Widget Function(BuildContext context, int index) itemBuilder;
 
-  const MovieGridView({
+  const TrendingListView({
     Key? key,
     required this.length,
     required this.itemBuilder,
@@ -13,16 +14,15 @@ class MovieGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
-    return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 6.0 / 9.0,
+    return ListView.separated(
+      separatorBuilder: (context, index) => Padding(
+        padding: EdgeInsets.all(_size.width * 0.005),
       ),
-      padding: EdgeInsets.symmetric(horizontal: _size.width * 0.05),
-      cacheExtent: 5,
-      itemCount: length,
-      itemBuilder: itemBuilder,
+      padding: EdgeInsets.symmetric(horizontal: _size.height * 0.01),
       physics: const AlwaysScrollableScrollPhysics(),
+      itemCount: length,
+      cacheExtent: 5,
+      itemBuilder: itemBuilder,
     );
   }
 }

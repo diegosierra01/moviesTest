@@ -1,4 +1,0 @@
-enum MovieLayoutType {
-  grid,
-  list,
-}

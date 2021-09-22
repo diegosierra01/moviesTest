@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:moviestest/constants/errors.dart';
+import 'package:moviestest/errors/errors.dart';
+import 'package:moviestest/trending/data/models/media_type.dart';
 import 'package:moviestest/trending/data/models/page.dart';
 import 'package:moviestest/trending/data/models/trending_request.dart';
 import 'package:moviestest/trending/domain/errors.dart';
@@ -7,31 +8,44 @@ import 'package:moviestest/trending/domain/movie_repository.dart';
 
 abstract class FilteredMovies {
   Future<Either<GenericError, Page>> loadMovies(
-      int currentPage, int totalPages);
+    int currentPage,
+    int? totalPages,
+    MediaType mediaType,
+  );
+
+  bool isAvailablePage(int currentPage, int? totalPages) {
+    const int initialPage = 1;
+    if (currentPage == initialPage) {
+      return true;
+    } else {
+      return currentPage > initialPage && currentPage <= totalPages!;
+    }
+  }
 }
 
-class WeeklyMoviesImpl implements FilteredMovies {
-  final MovieRepository _movieRepository;
+class WeeklyMoviesImpl extends FilteredMovies {
+  final TrendingRepository _trendingRepository;
 
-  WeeklyMoviesImpl(this._movieRepository);
+  WeeklyMoviesImpl(this._trendingRepository);
 
   @override
   Future<Either<GenericError, Page>> loadMovies(
     int currentPage,
-    int totalPages,
+    int? totalPages,
+    MediaType mediaType,
   ) async {
-    final bool _available =
-        _movieRepository.isAvailablePage(currentPage, totalPages);
+    const timeWindow = 'week';
+    final bool _available = isAvailablePage(currentPage, totalPages);
     if (_available) {
-      return await _movieRepository.prepareMoviesPage(
+      return await _trendingRepository.prepareMoviesPage(
         TrendingRequest(
-          mediaType: 'movie',
-          timeWindow: 'week',
+          mediaType: mediaType.value,
+          timeWindow: timeWindow,
           page: currentPage,
         ),
       );
     } else {
-      return Left(MoviePageError());
+      return Left(MovieLastPageError());
     }
   }
 }

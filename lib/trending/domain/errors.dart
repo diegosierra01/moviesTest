@@ -1,4 +1,4 @@
-import 'package:moviestest/constants/errors.dart';
+import 'package:moviestest/errors/errors.dart';
 
 abstract class MovieError implements GenericError {}
 
@@ -6,4 +6,4 @@ class MovieDatasourceError implements MovieError {}
 
 class MovieRepositoryError implements MovieError {}
 
-class MoviePageError implements MovieError {}
+class MovieLastPageError implements MovieError {}

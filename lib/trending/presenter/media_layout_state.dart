@@ -1,0 +1,4 @@
+enum MediaLayoutState {
+  grid,
+  list,
+}

@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../routes.dart';
+import 'package:moviestest/routes.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -53,9 +53,8 @@ class _SplashPageState extends State<SplashPage>
                 child: Transform.scale(
                   scale: _animation.value,
                   child: SvgPicture.asset(
-                    'assets/images/logo-lahaus-full.svg',
-                    color: Theme.of(context).primaryColor,
-                    height: 50,
+                    'assets/images/IMDb-logo.svg',
+                    height: 80,
                     fit: BoxFit.contain,
                   ),
                 ),

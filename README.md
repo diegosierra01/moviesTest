@@ -1,6 +1,6 @@
 # moviesTest
 
-Technical test (La Haus)
+IMDb exercise - Trending
 
 ## Tests 🧪
 

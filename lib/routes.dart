@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moviestest/splash/splash.dart';
-import 'package:moviestest/trending/presenter/movie_initial_page.dart';
+import 'package:moviestest/trending/ui/pages/media_detail_page.dart';
+import 'package:moviestest/trending/ui/pages/trending_page.dart';
 
 class Routes {
   Routes._internal();
@@ -13,12 +14,16 @@ class Routes {
 
   static const String home = '/';
   static const String movies = '/movies';
+  static const String movieDetail = '/movieDetail';
 
-  final _routes = {
-    home: MaterialPageRoute(builder: (context) => const SplashPage()),
-    movies: MaterialPageRoute(builder: (context) => const MovieListPage()),
+  // ignore: strict_raw_type
+  final Map<String, PageRoute Function(dynamic)> _routes = {
+    home: (_) => MaterialPageRoute(builder: (_) => const SplashPage()),
+    movies: (_) => MaterialPageRoute(builder: (_) => const TrendingListPage()),
+    movieDetail: (arguments) => MaterialPageRoute(
+        builder: (_) => MediaDetail(url: arguments as String)),
   };
 
   // ignore: strict_raw_type
-  Map<String, MaterialPageRoute> get getRoutes => _routes;
+  Map<String, PageRoute Function(dynamic)> get getRoutes => _routes;
 }

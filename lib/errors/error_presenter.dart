@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moviestest/constants/errors.dart';
+import 'package:moviestest/errors/errors.dart';
 
 class ErrorPresenter extends ChangeNotifier {
   GenericError _errorState = NoError();

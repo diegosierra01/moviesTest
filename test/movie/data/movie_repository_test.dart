@@ -1,18 +1,18 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:moviestest/constants/endpoints.dart';
-import 'package:moviestest/trending/data/models/movie.dart';
+import 'package:moviestest/trending/data/models/media.dart';
 import 'package:moviestest/trending/data/models/page.dart';
 import 'package:moviestest/trending/data/models/trending_request.dart';
 import 'package:moviestest/trending/data/trending_datasource.dart';
 import 'package:moviestest/trending/data/trending_repository_impl.dart';
 import 'package:moviestest/trending/domain/errors.dart';
 
-class DatasourceMock extends Mock implements MovieDatasource {}
+class DatasourceMock extends Mock implements TrendingDatasource {}
 
 void main() {
   final datasourceMock = DatasourceMock();
-  final repository = MoviesPageRepository(datasourceMock);
+  final repository = TrendingPageRepository(datasourceMock);
   final requestInfo = TrendingRequest(
       page: 1, mediaType: 'mediaType', timeWindow: 'timeWindow');
 
@@ -26,11 +26,15 @@ void main() {
     when(() => datasourceMock.getData(any())).thenAnswer(
       (_) async => Page(
         [
-          Movie(
-              id: 1,
-              posterPath: 'path.jpg',
-              releaseDate: DateTime(2010),
-              title: 'my movie')
+          Media.fromJson(
+            {
+              'id': 423108,
+              'poster_path': '/xbSuFiJbbBWCkyCCKIMfuDCA4yV.jpg',
+              'title': 'The Conjuring: The Devil Made Me Do It',
+              'release_date': '2021-05-25',
+              'media_type': 'movie'
+            },
+          )
         ],
         1,
       ),
@@ -39,7 +43,7 @@ void main() {
     result.fold(
       (r) => null,
       (page) {
-        expect(page.movies, isA<List<Movie>>());
+        expect(page.movies, isA<List<Media>>());
         expect(
           page.movies[0].posterPath,
           contains(Endpoints.baseUrlImages),
