@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:moviestest/errors/error_presenter.dart';
-import 'package:moviestest/trending/data/models/media_distribuitor.dart';
+import 'package:moviestest/trending/data/models/media_element.dart';
 import 'package:moviestest/trending/data/models/media_type.dart';
 import 'package:moviestest/trending/domain/errors.dart';
 import 'package:moviestest/trending/domain/usecases/weekly_movies.dart';
@@ -10,14 +10,14 @@ import 'package:moviestest/trending/presenter/info_media_state.dart';
 class InfoMediaPresenter with ChangeNotifier {
   final FilteredMovies weeklyMovies;
   final ErrorPresenter errorPresenter;
-  final List<Media> _mediaList = [];
+  final List<MediaElement> _mediaList = [];
   MediaState _state = MediaState.loading;
   late int _totalPages;
   late int _nextPage;
   late bool _over;
   InfoMediaPresenter(this.weeklyMovies, this.errorPresenter);
 
-  List<Media> get getMediaList => _mediaList;
+  List<MediaElement> get getMediaList => _mediaList;
 
   MediaState get getMediaState => _state;
 

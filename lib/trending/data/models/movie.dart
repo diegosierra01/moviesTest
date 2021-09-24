@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:moviestest/constants/endpoints.dart';
-import 'package:moviestest/trending/data/models/media_distribuitor.dart';
+import 'package:moviestest/trending/data/models/media_element.dart';
 
-class Movie extends Media {
+class Movie extends MediaElement {
   final int idMovie;
   final String titleMovie;
   final DateTime? releaseDateMovie;

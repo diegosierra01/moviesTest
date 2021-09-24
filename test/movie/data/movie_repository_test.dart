@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:moviestest/constants/endpoints.dart';
-import 'package:moviestest/trending/data/models/media_distribuitor.dart';
+import 'package:moviestest/trending/data/models/media_element.dart';
 import 'package:moviestest/trending/data/models/page.dart';
 import 'package:moviestest/trending/data/models/trending_request.dart';
 import 'package:moviestest/trending/data/trending_datasource.dart';
-import 'package:moviestest/trending/data/trending_repository_impl.dart';
+import 'package:moviestest/trending/domain/trending_repository_impl.dart';
 import 'package:moviestest/trending/domain/errors.dart';
 
 class DatasourceMock extends Mock implements TrendingDatasource {}
@@ -26,7 +26,7 @@ void main() {
     when(() => datasourceMock.getData(any())).thenAnswer(
       (_) async => Page(
         [
-          Media.fromJson(
+          MediaElement.classify(
             {
               'id': 423108,
               'poster_path': '/xbSuFiJbbBWCkyCCKIMfuDCA4yV.jpg',
@@ -43,7 +43,7 @@ void main() {
     result.fold(
       (r) => null,
       (page) {
-        expect(page.movies, isA<List<Media>>());
+        expect(page.movies, isA<List<MediaElement>>());
         expect(
           page.movies[0].posterPath,
           contains(Endpoints.baseUrlImages),

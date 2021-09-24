@@ -5,11 +5,11 @@ import 'package:moviestest/trending/data/models/trending_request.dart';
 import 'package:moviestest/trending/data/trending_datasource.dart';
 import 'package:moviestest/trending/domain/errors.dart';
 
-class TrendingRequestDatasource implements TrendingDatasource {
+class TrendingDioDatasource implements TrendingDatasource {
   final Dio dioClient;
   final Options options;
 
-  TrendingRequestDatasource(
+  TrendingDioDatasource(
     this.dioClient,
     this.options,
   );

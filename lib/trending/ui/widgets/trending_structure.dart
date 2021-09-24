@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:moviestest/trending/data/models/media_element.dart';
 import 'package:moviestest/trending/presenter/info_media_state.dart';
 import 'package:moviestest/trending/presenter/filters_presenter.dart';
 import 'package:moviestest/trending/presenter/info_media_presenter.dart';
@@ -52,7 +53,7 @@ class MovieStructure extends StatelessWidget {
                           );
                         }
                         if (index < mediaElements.length) {
-                          final element = mediaElements[index];
+                          final MediaElement element = mediaElements[index];
                           return TrendingListCard(
                             imagePath: element.posterPath,
                             iconData: element.getIcon,
