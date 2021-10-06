@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moviestest/errors/error_injection.dart';
-import 'package:moviestest/trending/presenter/trending_injection.dart';
+import 'package:moviestest/trending/presentation/presenter/trending_injection.dart';
 
 class TrendingListPage extends StatelessWidget {
   const TrendingListPage({Key? key}) : super(key: key);

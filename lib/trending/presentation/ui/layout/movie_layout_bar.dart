@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moviestest/trending/presenter/media_layout_state.dart';
-import 'package:moviestest/trending/presenter/media_layout_presenter.dart';
+import 'package:moviestest/trending/presentation/presenter/media_layout_presenter.dart';
+import 'package:moviestest/trending/presentation/presenter/media_layout_state.dart';
 import 'package:provider/provider.dart';
 
 class MovieLayoutBar extends StatelessWidget {

@@ -3,27 +3,31 @@ import 'package:dio/dio.dart';
 import 'package:moviestest/errors/errors.dart';
 
 class AppInterceptors extends InterceptorsWrapper {
+  final Map<Function(DioError), Exception> knownErrors = {
+    areTroublesInternet: InternetError(),
+    areTroublesServer: ServerError(),
+  };
+
+  static bool areTroublesInternet(DioError dioError) =>
+      dioError.message.contains('Socket');
+
+  static bool areTroublesServer(DioError dioError) =>
+      dioError.type == DioErrorType.connectTimeout ||
+      dioError.type == DioErrorType.receiveTimeout ||
+      dioError.type == DioErrorType.sendTimeout;
+
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) {
-    if (areTroublesInternet(err)) {
-      handler.reject(InternetError(
-        err.requestOptions,
-      ));
-    } else if (areTroublesServer(err)) {
-      handler.reject(ServerError(
-        err.requestOptions,
-      ));
-    } else {
-      handler.reject(UnknownError(
-        err.requestOptions,
-      ));
-    }
+  void onError(
+    DioError err,
+    ErrorInterceptorHandler handler,
+  ) {
+    knownErrors.forEach(
+      (isKnownError, errorResponse) {
+        if (isKnownError(err) == true) {
+          throw errorResponse;
+        }
+      },
+    );
+    throw UnknownError();
   }
-
-  bool areTroublesInternet(DioError err) => err.message.contains('Socket');
-
-  bool areTroublesServer(err) =>
-      err.type == DioErrorType.connectTimeout ||
-      err.type == DioErrorType.receiveTimeout ||
-      err.type == DioErrorType.sendTimeout;
 }

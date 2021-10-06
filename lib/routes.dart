@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moviestest/splash/splash.dart';
-import 'package:moviestest/trending/ui/pages/media_detail_page.dart';
-import 'package:moviestest/trending/ui/pages/trending_page.dart';
+import 'package:moviestest/trending/presentation/ui/pages/media_detail_page.dart';
+import 'package:moviestest/trending/presentation/ui/pages/trending_page.dart';
 
 class Routes {
   Routes._internal();

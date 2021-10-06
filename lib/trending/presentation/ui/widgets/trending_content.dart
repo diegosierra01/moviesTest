@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:moviestest/trending/ui/widgets/trending_header.dart';
-import 'package:moviestest/trending/ui/widgets/trending_structure.dart';
+import 'package:moviestest/trending/presentation/ui/widgets/trending_header.dart';
+import 'package:moviestest/trending/presentation/ui/widgets/trending_structure.dart';
 
 class MoviesContent extends StatelessWidget {
   const MoviesContent({Key? key}) : super(key: key);

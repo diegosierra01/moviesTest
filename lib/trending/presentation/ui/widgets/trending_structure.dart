@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:moviestest/trending/data/models/media_element.dart';
-import 'package:moviestest/trending/presenter/info_media_state.dart';
-import 'package:moviestest/trending/presenter/filters_presenter.dart';
-import 'package:moviestest/trending/presenter/info_media_presenter.dart';
-import 'package:moviestest/trending/presenter/media_layout_presenter.dart';
-import 'package:moviestest/trending/presenter/media_layout_state.dart';
-import 'package:moviestest/trending/ui/widgets/trending_grid_card.dart';
-import 'package:moviestest/trending/ui/widgets/trending_grid_view.dart';
-import 'package:moviestest/trending/ui/widgets/trending_list_card.dart';
-import 'package:moviestest/trending/ui/widgets/trending_list_view.dart';
+import 'package:moviestest/trending/presentation/presenter/filters_presenter.dart';
+import 'package:moviestest/trending/presentation/presenter/info_media_presenter.dart';
+import 'package:moviestest/trending/presentation/presenter/info_media_state.dart';
+import 'package:moviestest/trending/presentation/presenter/media_layout_presenter.dart';
+import 'package:moviestest/trending/presentation/presenter/media_layout_state.dart';
+import 'package:moviestest/trending/presentation/ui/widgets/trending_grid_card.dart';
+import 'package:moviestest/trending/presentation/ui/widgets/trending_grid_view.dart';
+import 'package:moviestest/trending/presentation/ui/widgets/trending_list_card.dart';
+import 'package:moviestest/trending/presentation/ui/widgets/trending_list_view.dart';
 import 'package:provider/provider.dart';
 
 class MovieStructure extends StatelessWidget {

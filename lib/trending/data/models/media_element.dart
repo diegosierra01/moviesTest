@@ -21,7 +21,7 @@ abstract class MediaElement implements MediaEntity {
     required this.posterPath,
   });
 
-  static MediaElement classify(Map<String, dynamic> json) {
+  static MediaElement factoryClassify(Map<String, dynamic> json) {
     final String mediaType = json['media_type'] as String;
     switch (mediaType) {
       case 'movie':

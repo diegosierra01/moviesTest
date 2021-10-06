@@ -9,7 +9,7 @@ class Page {
   factory Page.fromJson(Map<String, dynamic> json) => Page(
         (json['results'] as List)
             .map(
-              (e) => MediaElement.classify(e as Map<String, dynamic>),
+              (e) => MediaElement.factoryClassify(e as Map<String, dynamic>),
             )
             .toList(),
         json['total_pages'] as int,

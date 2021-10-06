@@ -4,8 +4,8 @@ import 'package:moviestest/constants/endpoints.dart';
 import 'package:moviestest/trending/data/models/media_element.dart';
 import 'package:moviestest/trending/data/models/page.dart';
 import 'package:moviestest/trending/data/models/trending_request.dart';
-import 'package:moviestest/trending/data/trending_datasource.dart';
-import 'package:moviestest/trending/domain/trending_repository_impl.dart';
+import 'package:moviestest/trending/data/datasource/trending_datasource.dart';
+import 'package:moviestest/trending/data/trending_repository_impl.dart';
 import 'package:moviestest/trending/domain/errors.dart';
 
 class DatasourceMock extends Mock implements TrendingDatasource {}
@@ -26,7 +26,7 @@ void main() {
     when(() => datasourceMock.getData(any())).thenAnswer(
       (_) async => Page(
         [
-          MediaElement.classify(
+          MediaElement.factoryClassify(
             {
               'id': 423108,
               'poster_path': '/xbSuFiJbbBWCkyCCKIMfuDCA4yV.jpg',

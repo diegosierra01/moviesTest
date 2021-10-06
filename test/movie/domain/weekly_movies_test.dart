@@ -1,12 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:moviestest/trending/data/models/media_type.dart';
+import 'package:moviestest/trending/domain/entitties/media_type.dart';
 import 'package:moviestest/trending/data/models/page.dart';
 import 'package:moviestest/trending/data/models/trending_request.dart';
 import 'package:moviestest/trending/domain/errors.dart';
 import 'package:moviestest/trending/domain/movie_repository.dart';
-import 'package:moviestest/trending/domain/usecases/weekly_movies.dart';
+import 'package:moviestest/trending/domain/usecases/weekly_movies_impl.dart';
 
 class RepositoryMock extends Mock implements TrendingRepository {}
 

@@ -29,8 +29,9 @@ dependencies:
   cupertino_icons: 1.0.2
   # state management
   provider: 5.0.0
-  # package to make http requests
+  # packages to make http requests
   dio: 4.0.0
+  http: 0.13.3
   # package to make persistence tests
   mocktail: 0.1.4
   # functional programming

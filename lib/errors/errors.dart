@@ -1,26 +1,40 @@
-import 'package:dio/dio.dart';
+abstract class GenericError implements Exception {
+  final String? message;
 
-abstract class GenericError implements Exception {}
-
-class NoError implements GenericError {}
-
-class UnknownError extends DioError implements GenericError {
-  RequestOptions newRequestOptions;
-
-  UnknownError(this.newRequestOptions)
-      : super(requestOptions: newRequestOptions);
+  GenericError({this.message});
 }
 
-class ServerError extends DioError implements GenericError {
-  final RequestOptions newRequestOptions;
+class NoError implements GenericError {
+  @override
+  final String? message;
 
-  ServerError(this.newRequestOptions)
-      : super(requestOptions: newRequestOptions);
+  NoError({this.message});
 }
 
-class InternetError extends DioError implements GenericError {
-  final RequestOptions newRequestOptions;
+class BadRequestError implements GenericError {
+  @override
+  final String? message;
 
-  InternetError(this.newRequestOptions)
-      : super(requestOptions: newRequestOptions);
+  BadRequestError({this.message});
+}
+
+class UnknownError implements GenericError {
+  @override
+  final String? message;
+
+  UnknownError({this.message});
+}
+
+class ServerError implements GenericError {
+  @override
+  final String? message;
+
+  ServerError({this.message});
+}
+
+class InternetError implements GenericError {
+  @override
+  final String? message;
+
+  InternetError({this.message});
 }

@@ -6,7 +6,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:moviestest/trending/data/models/page.dart';
 import 'package:moviestest/trending/data/models/trending_request.dart';
 import 'package:moviestest/trending/domain/errors.dart';
-import 'package:moviestest/trending/data/movie_dio_datasource.dart';
+import 'package:moviestest/trending/data/datasource/movie_dio_datasource.dart';
 
 import '../../sample/response_movie.dart';
 

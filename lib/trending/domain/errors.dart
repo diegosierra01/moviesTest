@@ -1,9 +1,22 @@
 import 'package:moviestest/errors/errors.dart';
 
-abstract class MovieError implements GenericError {}
+class MovieDatasourceError implements GenericError {
+  @override
+  final String? message;
 
-class MovieDatasourceError implements MovieError {}
+  MovieDatasourceError({this.message});
+}
 
-class MovieRepositoryError implements MovieError {}
+class MovieRepositoryError implements GenericError {
+  @override
+  final String? message;
 
-class MovieLastPageError implements MovieError {}
+  MovieRepositoryError({this.message});
+}
+
+class MovieLastPageError implements GenericError {
+  @override
+  final String? message;
+
+  MovieLastPageError({this.message});
+}

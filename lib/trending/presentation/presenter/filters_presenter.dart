@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:moviestest/trending/data/models/media_type.dart';
-import 'package:moviestest/trending/domain/media_types.dart';
-import 'package:moviestest/trending/presenter/info_media_presenter.dart';
+import 'package:moviestest/trending/domain/entitties/media_type.dart';
+import 'package:moviestest/trending/domain/entitties/media_types.dart';
+import 'package:moviestest/trending/presentation/presenter/info_media_presenter.dart';
 
 class FiltersPresenter extends ChangeNotifier {
   MediaType _mediaType = MediaTypes.instance!.defaultMediaType;

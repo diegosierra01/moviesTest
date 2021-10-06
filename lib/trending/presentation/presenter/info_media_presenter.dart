@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:moviestest/errors/error_presenter.dart';
 import 'package:moviestest/trending/data/models/media_element.dart';
-import 'package:moviestest/trending/data/models/media_type.dart';
+import 'package:moviestest/trending/domain/entitties/media_type.dart';
 import 'package:moviestest/trending/domain/errors.dart';
-import 'package:moviestest/trending/domain/usecases/weekly_movies.dart';
-import 'package:moviestest/trending/presenter/info_media_state.dart';
+import 'package:moviestest/trending/domain/usecases/filtered_movies.dart';
+import 'package:moviestest/trending/presentation/presenter/info_media_state.dart';
 
 class InfoMediaPresenter with ChangeNotifier {
   final FilteredMovies weeklyMovies;

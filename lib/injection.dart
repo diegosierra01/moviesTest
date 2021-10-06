@@ -1,10 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:moviestest/trending/data/movie_dio_datasource.dart';
-import 'package:moviestest/trending/data/trending_datasource.dart';
+import 'package:moviestest/trending/data/datasource/movie_dio_datasource.dart';
+import 'package:moviestest/trending/data/datasource/trending_datasource.dart';
 import 'package:moviestest/trending/domain/movie_repository.dart';
-import 'package:moviestest/trending/domain/trending_repository_impl.dart';
-import 'package:moviestest/trending/domain/usecases/weekly_movies.dart';
+import 'package:moviestest/trending/data/trending_repository_impl.dart';
+import 'package:moviestest/trending/domain/usecases/filtered_movies.dart';
+import 'package:moviestest/trending/domain/usecases/weekly_movies_impl.dart';
 
 class Injection {
   static final serviceLocator = GetIt.instance;

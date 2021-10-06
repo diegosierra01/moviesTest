@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moviestest/trending/ui/filters/filters_widget.dart';
-import 'package:moviestest/trending/ui/layout/movie_layout_bar.dart';
+import 'package:moviestest/trending/presentation/ui/filters/filters_widget.dart';
+import 'package:moviestest/trending/presentation/ui/layout/movie_layout_bar.dart';
 
 class TrendingControls extends StatelessWidget {
   const TrendingControls({Key? key}) : super(key: key);

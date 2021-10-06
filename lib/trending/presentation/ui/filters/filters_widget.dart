@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:moviestest/trending/data/models/media_type.dart';
-import 'package:moviestest/trending/domain/media_types.dart';
-import 'package:moviestest/trending/presenter/filters_presenter.dart';
+import 'package:moviestest/trending/domain/entitties/media_type.dart';
+import 'package:moviestest/trending/domain/entitties/media_types.dart';
+import 'package:moviestest/trending/presentation/presenter/filters_presenter.dart';
 import 'package:provider/provider.dart';
 
 class FiltersWidget extends StatelessWidget {

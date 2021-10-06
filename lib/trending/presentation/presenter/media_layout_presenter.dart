@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moviestest/trending/presenter/media_layout_state.dart';
+import 'package:moviestest/trending/presentation/presenter/media_layout_state.dart';
 
 class MoviesLayoutPresenter extends ChangeNotifier {
   MediaLayoutState _movieLayout = MediaLayoutState.grid;

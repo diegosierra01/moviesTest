@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moviestest/trending/ui/widgets/trending_controls.dart';
+import 'package:moviestest/trending/presentation/ui/widgets/trending_controls.dart';
 
 class TrendingHeader extends StatelessWidget {
   const TrendingHeader({Key? key}) : super(key: key);

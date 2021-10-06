@@ -1,4 +1,4 @@
-import 'package:moviestest/trending/data/models/media_type.dart';
+import 'package:moviestest/trending/domain/entitties/media_type.dart';
 
 class MediaTypes {
   MediaTypes._internal();
